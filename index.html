@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>短剧生产系统</title>
+<style>body{font-family:system-ui;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;background:#111;color:#fff}
+.box{text-align:center}.spin{width:36px;height:36px;border:3px solid #444;border-top-color:#fff;border-radius:50%;margin:16px auto;animation:r 1s linear infinite}
+@keyframes r{to{transform:rotate(360deg)}}</style></head>
+<body><div class="box"><h3>短剧生产系统</h3><div class="spin"></div><p>正在进入最新入口…</p></div>
+<script>
+function go(){fetch('latest.json?t='+Date.now()).then(r=>r.json()).then(j=>{if(j&&j.url){location.replace(j.url.replace(/\/$/,'')+'/projects');}}).catch(function(){setTimeout(go,2000);});}
+go();
+</script></body></html>
